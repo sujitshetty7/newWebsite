@@ -1,0 +1,9 @@
+dist/
+node_modules/
+pages/
+img/
+assets/
+*.webp
+*.js
+*.css
+*.svg
