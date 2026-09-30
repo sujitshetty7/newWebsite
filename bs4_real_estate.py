@@ -36,16 +36,16 @@ for text_node in soup.find_all(text=True):
     s = s.replace('Vincent Yu', 'Sujit Shetty')
     s = s.replace('Vincent, the founder', 'Sujit Shetty')
     s = s.replace('Vincent', 'Sujit Shetty')
-
+    
     # Generic button replacements
     s = re.sub(r'Claim free intro', 'Get Free Consultation', s, flags=re.IGNORECASE)
     s = re.sub(r'See the results', 'Get Free Consultation', s, flags=re.IGNORECASE)
     s = re.sub(r'Book a call', 'Contact Me', s, flags=re.IGNORECASE)
-
+    
     # Hero text replacements specifically tailored to exact existing strings
     s = s.replace('Gym marketing agency', 'Trusted Property Advisor & Marketer')
     s = s.replace('Helping you buy, sell, and market residential homes, NA plots, and investment properties across Shahapur and Thane. Simple guidance, honest advice, and proven results.', 'Helping you buy, sell, and market residential homes, NA plots, and investment properties across Shahapur and Thane. Simple guidance, honest advice, and proven results.')
-
+    
     s = s.replace('Real gyms, real owners.', 'Real Estate Expert')
     s = s.replace('29M+ in total revenue.', 'Sole Selling Agency')
     s = s.replace('116+ active gyms.', 'Advertising Expert')
@@ -58,12 +58,12 @@ for text_node in soup.find_all(text=True):
     s = s.replace('Total Revenue', 'Core Market')
     s = s.replace('Leads Generated', 'Sales & Marketing')
     s = s.replace('Campaigns Built', 'Project Support')
-
+    
     # Process
     s = s.replace('They bill upfront', 'YOU BUILD IT. I HELP SELL IT.')
     s = s.replace('We show up', 'WITHOUT BUILDING A HUGE IN-HOUSE TEAM.')
     s = s.replace('Most gym marketing agencies bill upfront and disappear. We take a different approach. We are your partner. Meaning we are right alongside you in the trenches of running a gym and only charge for results.', 'Marketing is only useful when it moves people closer to a sale. I combine branding, advertising, lead generation, calling, property showcases, sales coordination and closing support into one execution system.')
-
+    
     # Funnel
     s = s.replace('Watch a stranger in a feed become a member on the floor. Everything is tracked, measured and optimised for revenue, not just clicks.', 'A property buyer doesn\'t wake up ready to book. They search. They compare. They enquire. They visit. They negotiate. Then they decide. My job is to build and manage that journey.')
     s = s.replace('Instagram, Facebook, Google', 'Google · Instagram · Facebook · Ads')
@@ -91,7 +91,7 @@ for text_node in soup.find_all(text=True):
     s = s.replace('Weekly reporting', 'Lead Generation')
     s = s.replace('Monthly strategy call', 'Sales Process')
     s = s.replace('Cancel anytime', 'Conversion')
-
+    
     # Map
     s = s.replace('One gym per market. Once we partner with you, we won\'t work with another gym within a 5-mile radius. Your leads are yours, and your market is locked.', 'Shahapur is not just a location on a map. It\'s a market with its own buyers, price points, developers, micro-markets and buying behaviour. My primary focus is Shahapur and nearby regions.')
 
@@ -104,16 +104,16 @@ for text_node in soup.find_all(text=True):
     s = s.replace('On it. I\'m looking at your numbers now.', 'I want my name to show up on Google.')
     s = s.replace('Found it. Let\'s talk tomorrow at 9?', 'Let\'s build the personal brand and search presence around it.')
     s = s.replace('Perfect. See you then.', 'Exactly.')
-
+    
     # Footer
     s = s.replace('Sujit Shetty is a marketing agency exclusively for gym owners. We run ads, follow up with leads, and guarantee new members.', 'Sujit Shetty is a real estate expert, sole selling specialist and advertising expert with 8+ years of experience, focused on Shahapur and nearby regions.')
-
+    
     # Generic fallback
     if re.search(r'\bgroup class(es)?\b', s, re.I): s = re.sub(r'\bgroup class(es)?\b', 'site visit', s, flags=re.I)
     if re.search(r'\bmembers?\b', s, re.I): s = re.sub(r'\bmembers?\b', 'buyers', s, flags=re.I)
     if re.search(r'\bHIIT\b', s, re.I): s = re.sub(r'\bHIIT\b', 'sales', s, flags=re.I)
     if re.search(r'\bcrossfit\b', s, re.I): s = re.sub(r'\bcrossfit\b', 'real estate', s, flags=re.I)
-
+    
     if text_node.string != s:
         text_node.replace_with(s)
 
